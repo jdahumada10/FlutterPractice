@@ -1,6 +1,5 @@
 import 'package:disenos/src/pages/basico_pages.dart';
 import 'package:flutter/material.dart';
- 
 void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
