@@ -18,6 +18,6 @@ Map<String,WidgetBuilder> getApplicationRoutes(){
           "animatedContainer"  : (BuildContext context) => AnimatedContainerPage(),
           "inputs"             : (BuildContext context) => InputPage(),
           "slider"             : (BuildContext context) => SliderPage(),
-          "list"              : (BuildContext context) => ListaPage()
+          "list"               : (BuildContext context) => ListaPage()
   };
 }

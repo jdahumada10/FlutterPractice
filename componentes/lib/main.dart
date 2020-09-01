@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         const Locale('es',' CO')  //Español
       ],
       // home: HomePage(),
-      initialRoute: "/",
+      initialRoute: "animatedContainer",
       routes: getApplicationRoutes(),
       onGenerateRoute: (RouteSettings settings){
         print("Ruta llamada: ${settings.name}");

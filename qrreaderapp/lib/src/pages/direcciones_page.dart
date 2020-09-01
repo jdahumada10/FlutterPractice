@@ -28,7 +28,7 @@ class DireccionesPage extends StatelessWidget {
         return ListView.builder(
           itemCount: scans.length,
           itemBuilder: (context, i) => Dismissible(
-            onDismissed: (direction) => scansBloc.borrarScan(scans[i].id),
+            onDismissed: (direction) {} ,//scansBloc.borrarScan(scans[i].id),
             background: Container(color: Colors.red,),
             child: ListTile(
               leading: Icon(Icons.cloud_queue, color: Theme.of(context).primaryColor,),

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:peliculas/src/models/actores_model.dart';
 import 'package:peliculas/src/models/pelicula_model.dart';
 import 'package:http/http.dart' as http;
@@ -25,13 +26,19 @@ class PeliculasProvider{
   }
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async{
-    final resp = await http.get(url);
-    final decodedData = json.decode(resp.body);
+    String a = 'https://10.0.2.2:5002/mobileapi/ordenes/Coordinadora';
+    HttpClient client = new HttpClient();
+    client.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
+    final u = Uri.https('localhost:5002/mobileapi', '/ordenes/Coordinadora',{});
+    final request = await client.getUrl(u);
+    HttpClientResponse response = await request.close();
+    print(response);
+    //final decodedData = json.decode(respons);
 
-    final peliculas = new Peliculas.fromJsonList(decodedData["results"]);
+    //final peliculas = new Peliculas.fromJsonList(decodedData["results"]);
 
 
-    return peliculas.items;
+    return [];
   }
 
 
@@ -54,11 +61,12 @@ class PeliculasProvider{
 
     _popularesPage++;
 
-    final url = Uri.https(_url, "3/movie/popular", {
-      "api_key"   :   _apiKey,
-      "language"  :   _language,
-      "page"      :   _popularesPage.toString()
-    });
+    // final url = Uri.https(_url, "3/movie/popular", {
+    //   "api_key"   :   _apiKey,
+    //   "language"  :   _language,
+    //   "page"      :   _popularesPage.toString()
+    // });
+    final url = Uri.https('localhost:5002/mobileapi', '/ordenes/Coordinadora',{});
 
     final resp = await _procesarRespuesta(url);
 
